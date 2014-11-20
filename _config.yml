@@ -1,6 +1,6 @@
 # --------------------------------------------------
 # Site settings
-title: "Boot: Clojure's cutest build tool"
+title: "Boot: build tooling for Clojure"
 logo: /assets/images/logos/boot-nav-3.png
 favicon: /assets/images/logos/boot-favicon-3.png
 iosicon: /assets/images/logos/boot-iosicon-3.png
