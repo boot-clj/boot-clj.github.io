@@ -1,6 +1,6 @@
 # --------------------------------------------------
 # Site settings
-title: Boot: Clojure's cutest build tool
+title: "Boot: Clojure's cutest build tool"
 logo: /assets/images/logos/boot-nav-3.png
 favicon: /assets/images/logos/boot-favicon-3.png
 iosicon: /assets/images/logos/boot-iosicon-3.png
@@ -9,6 +9,7 @@ description: Build tooling for Clojure
 email: info@adzerk.com
 copyright: Copyright © 2014 <a href="http://tailrecursion.com/~alan/">Alan Dipert</a>, <a href="https://github.com/micha">Micha Niskin</a>, <a href="https://github.com/somegoodpixels">Joshua Smith</a>
 adzerk_mention: true
+exclude: [vendor]
 
 # --------------------------------------------------
 # the subpath of your site, e.g. /blog/
