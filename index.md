@@ -3,7 +3,7 @@ layout: home
 class: home
 logo: /assets/images/logos/boot-logo-3.png
 h1: Boot
-h2: Clojure's cutest build tool
+h2: Build tooling for Clojure
 actions:
 - title: Get Started
   href: https://github.com/boot-clj/boot#install
