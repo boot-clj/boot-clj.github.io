@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+	{% include head.html %}
+	<body {%if page.class %}class="{{page.class}}"{% endif %}>
+		{% include login.html %}
+		<div id="page" class="page">
+			{% include header.html %}
+			<main id="content">
+				<section class="silver">
+					<div class="ui-cols">
+						<div class="ui-col-12">
+							<div class="features">
+								<div class="feature">
+									<h4>Hosted and Supported</h4>
+									<p>99.9% uptime guarantee with a real-time status page. Full documentation and enterprise account management.</p>
+								</div>
+								<div class="feature">
+									<h4>Scalable</h4>
+									<p>Make billions of API requests per month with the best response times in the industry.</p>
+								</div>
+								<div class="feature">
+									<h4>Extensible</h4>
+									<p>Render any content type on any platform. Integrate directly into your CMS or app.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<div class="ui-cols">
+					<div class="ui-col-12">
+						<div class="rows" id="table">
+							<div class="row">
+								<div class="row-content">
+									<h2>Pricing Guide</h2>
+									<p>Our <strong>core ad serving features</strong> are required to serve ads through Adzerk. Monthly events are priced at a <strong>CPM based rate</strong> as are additional features like support, custom domain, and sales management.</p>
+								</div>
+								<div class="row-content">
+									<p>You can create a customized quote below by selecting the desired contract term, using the slider to select your current events volume, adding your desired support level along with additional features. Once completed, you can submit the quote to our sales team to schedule a consultation call.</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="row-content">
+									<h2>Estimate Impressions</h2>
+									<p>Use the slider to select your <strong>current monthly impression total</strong>. We'll calculate the price for overages beyond 100 million impressions, and the prices for any other extensions to your account. <strong>Have questions?</strong> <a href="/contact">Contact Sales</a> for a consultation.</p>
+								</div>
+								<div class="row-content">
+									<div class="adzerk-slider">
+										<div class="adzerk-slider-score"></div>
+										<div class="adzerk-slider-controls"></div>
+										<div class="adzerk-slider-labels"><label>10M</label><label>100M</label><label>1B+</label></div>
+										<input type="number" min="7" max="9" value="7" data-format="log" data-increment=".01" />
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="row-content">
+									<h2>Choose Support Options</h2>
+									<p>Choose one of the following support options based on your needs:</p>
+								</div>
+								<div class="row-content">
+									<div id="support"></div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="row-content">
+									<h2>Select Add-ons</h2>
+									<p>Choose which extensions you need to complete your Adzerk account.</p>
+								</div>
+								<div class="row-content">
+									<div id="apps"></div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="row-content">
+									<h2>Choose Payment Term</h2>
+									<p>Choose your payment term. Select a monthly term for standard pricing or a one-year term for amazing discounts. All contracts are one year in length.</p>
+								</div>
+								<div class="row-content">
+									<div id="term"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+			<div id="cart"></div>
+			<div id="quote"></div>
+
+			{% raw %}
+				<script type="text/x-handlebars" data-template-name="adzerk-pricing-cart">
+					<div class="cart">
+						{{#if view.isYear}}
+							<div class="cart-label">Annual Cost</div>
+							<a href="#summary" class="cart-price">${{view.annual_discount_cost}}</a>
+						{{else}}
+							<div class="cart-label">Monthly Cost</div>
+							<a href="#summary" class="cart-price">
+								{{#if view.isBelowMin}}
+									${{view.calculated_cost_layer}}
+								{{else}}
+									${{view.final_cost_layer}}
+								{{/if}}
+							</a>
+						{{/if}}
+					</div>
+				</script>
+				
+				<script type="text/x-handlebars" data-template-name="adzerk-pricing-summary">
+					<div class="row-content" id="summary">
+						<h1>
+							{{#if view.isYear}}
+								${{view.annual_discount_cost}}
+							{{else}}
+								{{#if view.isBelowMin}}
+									${{view.calculated_cost_layer}}
+								{{else}}
+									${{view.final_cost_layer}}
+								{{/if}}
+							{{/if}}
+							<small>{{#if view.isYear}}Annual{{else}}Monthly{{/if}}</small>
+						</h1>
+						<p>Our core ad serving features are required to serve ads through Adzerk. Monthly impressions are priced at a CPM based rate as are additional features like support, white label, and sales management.</p>
+						<a href="#" class="ui-action ui-action-main ui-action-large" {{action "get_quote"}}>Schedule Consultation</a>
+					</div>
+					<div class="row-content">
+						<div id="adzerk-pricing-message" style="display: none;">			
+	Contract: {{term}}
+	Events: {{view.impression_string}}
+	CPM: ${{view.impressions_cpm}}cpm
+
+	Support: {{view.support_string}}
+	Support Cost: {{#if view.support_cpm}}${{view.support_cpm}}cpm {{#if view.support_min}} (${{view.support_min}} monthly min) {{/if}} {{else}} {{#if view.support_min}} ${{view.support_min}} flat monthly fee {{else}} Completely Free {{/if}}{{/if}}
+
+	Add-Ons: {{#if view.apps_selected}}{{#each view.apps}}{{#if selected}}
+	{{name}} ({{#if price}}${{price_string}}{{else}}Free{{/if}}, {{#if hasCost}}{{#if cpm}}${{cpm_string}}cpm{{/if}}{{#if cost}} ${{cost_string}} installation{{/if}}{{/if}}){{/if}}{{/each}}{{else}}(none){{/if}}
+
+	{{#if view.isBelowMin}}Monthly Minimum: ${{view.calculated_cost_layer}}{{else}}Final Monthly Cost: ${{view.final_cost_layer}} {{#if view.discount_string}} (${{view.discounted_cpm}} for events over {{view.impressions_tier_string}}){{/if}}{{/if}}
+						</div>
+						<div class="adzerk-pricing">
+							<div class="adzerk-pricing-section">
+								<div class="adzerk-pricing-item">
+									<span class="adzerk-pricing-value">{{view.impressions_cost_string}}</span>
+									<span class="adzerk-pricing-label">Events:</span>
+									<span class="adzerk-pricing-selection">{{view.impression_string}}</span>
+									<p>
+										${{view.impressions_cpm}}cpm 
+									 	{{#if view.impressions_min}}
+									 		(${{view.impressions_min}} monthly min)
+									 	{{/if}}
+									</p>
+								</div>
+							</div>
+							<div class="adzerk-pricing-section">
+								<div class="adzerk-pricing-item">
+									<span class="adzerk-pricing-value">{{view.support_cost_string}}</span>
+									<span class="adzerk-pricing-label">Support:</span>
+									<span class="adzerk-pricing-selection titlecase">{{view.support_string}}</span>
+								</div>
+							</div>
+							{{#if view.apps_selected}}
+								<div class="adzerk-pricing-section">
+									<div class="adzerk-pricing-item">
+										<span class="adzerk-pricing-label">Add-Ons</span>
+									</div>
+									{{#each view.apps}}
+										{{#if selected}}
+											<div class="adzerk-pricing-item">
+												<span class="adzerk-pricing-value">
+													{{#if price}}										
+														${{price_string}}
+													{{else}}
+					                   {{#if cost}}
+					                     ${{cost_string}}
+					                   {{else}}
+														  Free
+					                   {{/if}}
+													{{/if}}
+												</span>
+												<span class="adzerk-pricing-selection">{{name}}</span>
+												{{#if hasCost}}										
+													<p>
+														{{#if cpm}}
+															${{cpm_string}}cpm
+														{{/if}}
+									 	        {{#if min}}
+									 	        	(${{min}} monthly min)
+									 	        {{/if}}
+													</p>
+												{{/if}}
+											</div>
+										{{/if}}
+									{{/each}}
+								</div>
+							{{/if}}
+							<div class="adzerk-pricing-summary">
+								{{#if view.isBelowMin}}
+									<div class="adzerk-pricing-item">
+										<span class="adzerk-pricing-value">
+										  {{#if view.isYear}}
+											  <strike>${{view.calculated_cost_layer}}</strike>
+										  {{else}}
+											  ${{view.calculated_cost_layer}}
+										  {{/if}}
+										</span>
+										<span class="adzerk-pricing-label titlecase">
+					             {{view.term_string}} minimum
+										</span>
+								{{else}}
+									<div class="adzerk-pricing-item">
+										<span class="adzerk-pricing-value">
+											{{#if view.discount_string}}
+												<strike>${{view.calculated_cost_layer}}</strike>
+											{{else}}
+					               {{#if view.isYear}}
+												  <strike>${{view.calculated_cost_layer}}</strike>
+					               {{else}}
+												  ${{view.final_cost_layer}}
+					               {{/if}}
+											{{/if}}
+										</span>
+										<span class="adzerk-pricing-label titlecase">
+					             {{view.term_string}} estimate
+										</span>
+									{{#if view.discount_string}}
+										<div class="adzerk-pricing-item">
+											<span class="adzerk-pricing-value">
+											  {{#if view.isYear}}
+												  <strike>${{view.final_cost_layer}}</strike>
+											  {{else}}
+												  ${{view.final_cost_layer}}
+											  {{/if}}
+											</span>
+											<span class="adzerk-pricing-label">
+													<em>Volume Discount</em>
+											</span>
+					           </div>
+									{{/if}}
+								{{/if}}
+								<p>Events over {{view.impression_string}} will be charged at ${{view.overage_cpm}}.</p>
+					       {{#if view.isYear}}
+									<div class="adzerk-pricing-item">
+										<span class="adzerk-pricing-value">
+											${{view.annual_discount_cost}}
+										</span>
+										<span class="adzerk-pricing-label">
+										  <em>20% Discount</em>
+										</span>
+					         </div>
+					       {{/if}}
+								{{#if view.isBelowMin}}
+									<p>Yearly contracts start at $1000 per month.</p>
+					       {{/if}}
+							</div>
+						</div>
+					</div>	
+				</script>
+				<script type="text/x-handlebars" data-template-name="adzerk-pricing-quote">
+					{{#if quote_visible}}
+						<div id="quote-overlay" class="overlay overlay-visible">
+							<div class="overlay-content">
+								<div class="modal modal-form">
+									<a href="#" class="modal-close" {{action 'close_quote'}}></a>
+									<div class="modal-content">
+										<iframe {{bind-attr src="view.quote_iframe"}} height="600" type="text/html" frameborder="0" allowTransparency="true"></iframe>
+									</div>
+								</div>
+							</div>
+						</div>
+					{{/if}}
+				</script>
+				<script type="text/x-handlebars" data-template-name="adzerk-pricing-apps">
+					<div class="adzerk-tiles adzerk-tiles-full">
+						{{#each apps}}
+							<label class="ui-option-label" {{action 'toggle_select_app' id target="view"}}>
+								<span {{bind-attr class="selected:ui-option-checked :ui-field :ui-option :ui-check"}}><span class="ui-option-icon"></span></span>
+								<h5>{{name}}</h5>
+								<p>{{desc}}</p>
+							</label>
+						{{/each}}
+					</div>
+				</script>
+				<script type="text/x-handlebars" data-template-name="adzerk-pricing-support">
+					<label class="ui-option-label" {{action "choose_standard_support"}}>
+						<span {{bind-attr class="view.standardSupport:ui-option-checked :ui-field :ui-option :ui-radio"}}><span class="ui-option-icon"></span></span>
+						<h5>Standard Support</h5>
+						<p>Standard support gives you full account management for your first 90 days to help you migrate successfully. Afterwards, includes email and knowledgebase support for ongoing assistance.</p>
+					</label>						
+					<label class="ui-option-label" {{action "choose_premium_support"}}>
+						<span {{bind-attr class="view.premiumSupport:ui-option-checked :ui-field :ui-option :ui-radio"}}><span class="ui-option-icon"></span></span>
+						<h5>Premium Support</h5>
+						<p>Premium Support gives you full account management for the lifetime of your account, combined with knowledgebase, email and scheduled phone support as needed.</p>
+					</label>
+				</script>
+				<script type="text/x-handlebars" data-template-name="adzerk-pricing-term">
+					<label class="ui-option-label" {{action "choose_month_cycle"}}>
+						<span {{bind-attr class="view.monthlyTerm:ui-option-checked :ui-field :ui-option :ui-radio"}}><span class="ui-option-icon"></span></span>
+						<h5>Monthly Pricing</h5>
+						<p>Pay Month-by-Month. All contracts are one year in length.</p>
+					</label>
+					<label class="ui-option-label" {{action "choose_year_cycle"}}>
+						<span {{bind-attr class="view.annualTerm:ui-option-checked :ui-field :ui-option :ui-radio"}}><span class="ui-option-icon"></span></span>
+						<h5>Annual Pricing</h5>
+						<p>Save big by selecting annual pricing.</p>
+					</label>
+				</script>
+			{% endraw %}
+			<script src="{{ '/js/pricing.js' | prepend: site.baseurl }}"></script>
+			<script src="{{ '/js/jquery-ui-1.9.2.js' | prepend: site.baseurl }}"></script>
+			<script src="{{ '/js/handlebars-v1.3.0.js' | prepend: site.baseurl }}"></script>
+			<script src="{{ '/js/ember-1.4.0.min.js' | prepend: site.baseurl }}"></script>
+			{% include footer.html %}
+		</div>
+	</body>
+</html>

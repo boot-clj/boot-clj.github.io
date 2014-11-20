@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	{% include head.html %}
+	<body {%if page.class %}class="{{page.class}}"{% endif %}>
+		{% include login.html %}
+		<div id="page" class="page">
+			{% include header-resource.html %}
+			<main id="content">
+				<div class="post">
+					<div class="ui-cols">
+						<div class="ui-col-7">
+							<div class="post-content">
+								<div class="post-preview">
+									<img src="{{ page.preview }}" />
+								</div>
+								<div class="post-body">
+									{{ content }}
+								</div>
+							</div>
+						</div>
+						<div class="ui-col-4 ui-skip-1">
+							<form class="resource-form">
+								<input type="hidden" name="form" value="http://www2.adzerk.com/l/19182/2013-09-18/4hq2k">
+								<input type="hidden" name="file" value="{{ page.file }}">
+							</form>
+						</div>
+					</div>
+				</div>
+			</main>
+			{% include footer.html %}
+		</div>
+	</body>
+</html>

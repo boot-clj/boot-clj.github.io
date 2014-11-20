@@ -1,0 +1,49 @@
+# --------------------------------------------------
+# Site settings
+title: Boot, Clojure build tool
+logo: /assets/images/logos/boot-nav-3.png
+favicon: /assets/images/logos/boot-favicon-3.png
+iosicon: /assets/images/logos/boot-iosicon-3.png
+company: Adzerk
+description: Build tooling for Clojure
+email: info@adzerk.com
+copyright: Copyright © 2014 <a href="http://tailrecursion.com/~alan/">Alan Dipert</a>, <a href="https://github.com/micha">Micha Niskin</a>, <a href="https://github.com/somegoodpixels">Joshua Smith</a>
+adzerk_mention: true
+
+# --------------------------------------------------
+# the subpath of your site, e.g. /blog/
+permalink: /blog/:year/:month/:title
+paginate: 5
+paginate_path: /blog/page/:num
+
+# --------------------------------------------------
+# the base hostname & protocol for your site
+url: "http://boot-clj.com"
+github_username: boot-clj
+
+# --------------------------------------------------
+# Build settings
+markdown: redcarpet
+  
+# --------------------------------------------------
+# Build settings
+defaults:
+- scope:
+    path: ""
+    type: "pages"
+  values:
+    layout: "page"
+- scope:
+    path: ""
+    type: "posts"
+  values:
+    layout: "post"
+# --------------------------------------------------
+# Links
+nav: 
+- title: Community
+  href: https://github.com/boot-clj/boot/wiki/Community
+- title: Wiki
+  href: https://github.com/boot-clj/boot/wiki
+- title: Code
+  href: https://github.com/boot-clj/boot

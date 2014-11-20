@@ -1,0 +1,101 @@
+header { color: $banner-color;
+	a, a:hover { color: $banner-color; }
+	.ui-action { border: 2px solid white !important; background: $banner-dark; color: white !important; font-weight: bold; 
+		&.ui-action-large { font-size: 1.25rem; border-radius: 6px; margin-top: 2rem; 
+			@media only screen and (max-width: $break) {
+				font-size: 1rem; white-space: noral; text-align: center;
+			}
+		}
+	}
+	nav { padding: 3% 0 3.25%; @include clearfix();
+		.header-logo { float: left; 
+			a { width: 160px; height: 60px; top: -.3rem; display: block; background: transparent no-repeat 0 50%; background-size: contain; font-size: 1.5rem; font-weight: bold; line-height: 2; }
+			a[data-logo-image] { text-indent: -9999px; }
+			@media only screen and (min-width: $break) {
+				body.home & { display: none; }
+			}
+			@media only screen and (max-width: $break) {
+				a { width: 120px; top: -.2rem;  }
+			}
+		}
+		.header-links { float: right; font-size: 15px; font-weight: bold; top: -.3em;
+			a { display: inline-block; padding: 1em; }
+			&.button { border-color: rgba(255,255,255,.25); margin-left: 8px; padding-left: 18px; padding-right: 18px; border-radius: 28px;  }
+		}
+		.header-menu { margin: 1.25rem .5rem; display: none; width: 20px; height: 12px; border: 2px solid #fff; border-width: 2px 0; float: right; text-indent: -9999px;
+			&:before { content: ''; display: block; height: 2px; width: 100%; position: absolute; top: 0; left: 0; right: 0; bottom: 0; margin: auto; background: white; }
+		}
+		@media only screen and (max-width: $break) {
+			.header-menu { display: block; }
+			.header-links { display: none; }
+		}
+	}
+	.nav-mobile { display: none; background: #333; font-size: $small; text-align: center; 
+		.nav-mobile-content { padding: 1rem; 
+			a { color: white; display: inline-block; padding: .25rem .5rem; white-space: nowrap; }
+		}
+	}
+	.header-content { background: transparentize($banner-dark,.666);
+		.header-text { display: table; width: 100%; 
+			* { margin: 0; padding: 0; border-width: 0; }
+			> * { display: table-cell; vertical-align: bottom; padding: 3.5rem 0 4.25rem; }
+			h1 {  max-width: 800px; }
+			ul { white-space: nowrap; text-align: right; padding-left: 8%; padding-bottom: 0;
+				li { display: inline-block; list-style-type: none; 
+					a { display: block; color: $banner-color; overflow: hidden; padding: 0 1rem 4.75rem; font-weight: bold; top: .75rem; 
+						&.selected {
+							&:after { content: ''; position: absolute; width: 0; height: 0; bottom: 0; left: 50%; margin-left: -24px; border: 0 solid transparent; border-width: 0 24px 24px 24px; border-bottom-color: white; }
+						}
+					}
+				}
+			}
+			@media only screen and (max-width: $break) {
+				display: block;
+				> * { display: block; padding: 2rem 0 2.5rem; }
+				h1, ul { text-align: center; }
+				ul { padding: 0 0 2rem; margin-top: 0; white-space: normal; }
+				h1 + ul { margin-top: -1rem; }
+				ul li a { padding: .25rem 1rem; }
+				ul li a:after { display: none; }
+			}
+		}
+		&.header-content-slim { padding: .5rem 0 1rem; 
+			h1 { font-size: 1.5rem; font-weight: bold; letter-spacing: 0; top: -.125em; }
+			.header-text {
+				> * { padding: 2rem 0; }
+				ul li a { padding: 0; top: .25rem; }
+			}
+			@media only screen and (max-width: $break) {
+				.header-text { margin-top: .5rem; }
+				.header-text {
+					> * { padding: 1rem 0; }
+				}
+			}
+		}
+	}
+	.header-promo { padding: 0 0 7%; 
+		.header-promo-content * { margin: 1rem 0; }
+		.header-promo-logo { display: block; 
+			a { display: block; }
+			img { display: block; width: 100%; }
+		}
+		h1 { font-size: 5.5rem; letter-spacing: -.05em; font-weight: bold; line-height: 1; }
+		h2 { font-size: 3.75rem; }
+		h3 { font-size: 2rem; font-weight: normal; }
+		@media only screen and (min-width: $break) {
+			.header-promo-content { display: table; width: 100%; 
+				.header-promo-logo { padding-right: 5%; width: 300px; }
+				> * { display: table-cell; vertical-align: middle; }
+			}
+		}
+		@media only screen and (max-width: $break) {
+			.header-promo-content * { text-align: center; margin: 1rem auto; }
+			.header-promo-logo { width: 50%; margin: 0 auto; display: block; }
+			
+			h1 { font-size: 3.5rem; }
+			h2 { font-size: 2.75rem; }
+			h3 { font-size: 1.75rem; }
+		}
+		h1, h2, h3 { text-shadow: 0 .07em 0 transparentize($banner-dark,.333); }
+	}
+}

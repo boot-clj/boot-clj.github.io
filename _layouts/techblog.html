@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+	{% include head.html rss_title="Adzerk Tech Blog" rss_feed="/tech/feed.xml" %}
+	<body {%if page.class %}class="{{page.class}}"{% endif %}>
+		{% include login.html %}
+		<div id="page" class="page">
+			{% include header-techblog.html %}
+			<main id="content">
+				{{ content }}
+			</main>
+			{% include footer.html %}
+		</div>
+	</body>
+</html>

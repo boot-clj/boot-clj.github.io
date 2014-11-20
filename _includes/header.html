@@ -1,0 +1,21 @@
+<header>
+	{% include nav.html %}
+	{% if page.links %}
+		<div class="header-content">
+			<div class="ui-cols">
+				<div class="ui-col-10 ui-skip-1">
+					<div class="header-text">
+						<h1>{{ page.title }}</h1>
+						{% if page.links %}
+							<ul>
+								{% for link in page.links %}
+									<li><a {%if link.selected %} class="selected" {% endif %} href="{{link.href}}">{{link.title}}</a></li>
+								{% endfor %}
+							</ul>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+</header>

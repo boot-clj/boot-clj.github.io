@@ -1,0 +1,19 @@
+
+.profile { box-sizing: border-box; display: inline-block; margin-right: -.5em; width: 33.333333%; padding: 2% 30px; vertical-align: top; 
+	> * { padding: 0; padding-left: 32%; }
+	img { padding: 0; width: 28%; height: auto; display: block; border-radius: 50%; position: absolute; left: 0; }
+	h4 { margin: 0; 
+		em { font-size: $small; font-weight: normal; opacity: .66666; display: block; }
+	}
+	ul { margin: .5em 0; border-width: 0; font-size: $tiny; line-height: 1.75; 
+		li { list-style-type: none; display: inline; margin: 0 1em 0 0; }
+	}
+	@media only screen and (max-width: $break) {
+		width: 50%;
+	}
+	@media only screen and (max-width: 560px) {
+		width: 100%;
+		> * { padding-left: 80px; padding-right: 0; }
+		img { width: 80px; padding-left: 0; }
+	}
+}

@@ -1,0 +1,30 @@
+<header>
+	{% include nav.html %}
+	<div class="header-promo">
+		<div class="ui-cols">
+			<div class="ui-col-10 ui-skip-1">
+				<div class="header-promo-content">
+					<div class="header-promo-logo">
+						{%if page.logo %}<a href="{{site.url}}"><img src="{{page.logo}}" alt="{{site.title}}"/></a>{% endif %}
+					</div>
+					<div class="header-promo-text">
+						{%if page.h1 %}<h1>{{ page.h1 }}</h1>{% endif %}
+						{%if page.h2 %}<h3>{{ page.h2 }}</h3>{% endif %}
+						{%if page.actions %}
+							<p>
+								{%for action in page.actions %}
+									<a href="{{action.href}}" class="ui-action ui-action-large">{{action.title}}</a>
+								{% endfor %}
+							</p>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+
+
+
+

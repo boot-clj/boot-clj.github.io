@@ -1,0 +1,32 @@
+.mention { background: white; padding: 5% 0 8% 0; background: white;
+	&:before { content: ''; position: absolute; width: 200px;  display: block; height: 3px; background: $faint; top: -3rem; left: 50%; margin-left: -100px; }
+	img { margin: 0 auto 2rem auto; max-width: 80px; display: block; }
+	blockquote { font-style: normal; padding-left: 0; border-width: 0; color: $color; text-align: center; margin: 2rem 0; 
+		em { font-style: oblique; color: transparentize($color,.25); }
+	}
+	a { color: #ff5c1e; }
+}
+
+footer { font-size: $small; padding: 3% 0; color: $light; background: #f4f4f4; @include clearfix();
+	a { color: #999; font-weight: 500;
+		&.network { display: inline-block; top: -2px; opacity: .25; width: 28px; height: 28px; margin-right: 16px; background: transparent no-repeat 50% 50%; background-size: cover; white-space: nowrap; text-indent: -9999px; }
+		&.github { background-image: url(/assets/images/icons/github.png); }
+		&.twitter { background-image: url(/assets/images/icons/twitter.png); }
+		&.linkedin { background-image: url(/assets/images/icons/linkedin.png); }
+		&:hover { text-decoration: none; }
+	}
+	.footer-links { float: left; }
+	.footer-links > * { display: inline-block; margin-right: 22px; }
+	.footer-privacy { float: right; }
+	.footer-privacy > * { display: inline-block; margin-left: 22px; }
+	small a { color: inherit; font-weight: inherit; 
+		&:hover { color: $link; }
+	}
+	@media only screen and (max-width: $break) {
+		padding: 2rem 0;
+		* { text-align: center; }
+		.footer-links, .footer-privacy { float: none; display: inline; }
+		a, small { margin: 0 .25rem; line-height: 2rem; padding: 0; }
+	
+	}
+}

@@ -1,0 +1,17 @@
+@mixin font($name,$file,$id,$weight,$style) {
+	font-family: $name;
+	src: url('/assets/fonts/#{$name}/#{$file}.eot');
+	src: url('/assets/fonts/#{$name}/#{$file}.eot') format('embedded-opentype'),
+		url('/assets/fonts/#{$name}/#{$file}.woff') format('woff'),
+		url('/assets/fonts/#{$name}/#{$file}.ttf') format('truetype'),
+		url('/assets/fonts/#{$name}/#{$file}.svg##{$id}') format('svg');
+	font-weight: $weight;
+	font-style: $style;
+}
+
+@font-face { @include font(opensans, OpenSans-Regular, opensans, normal, normal); }
+@font-face { @include font(opensans, OpenSans-Italic, opensans, normal, italic); }
+@font-face { @include font(opensans, OpenSans-Semibold, opensans, 500, normal); }
+@font-face { @include font(opensans, OpenSans-SemiboldItalic, opensans, 500, italic); }
+@font-face { @include font(opensans, OpenSans-Bold, opensans, bold, normal); }
+@font-face { @include font(opensans, OpenSans-BoldItalic, opensans, bold, italic); }

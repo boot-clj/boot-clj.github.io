@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	{% include head.html %}
+	<body {%if page.class %}class="{{page.class}}"{% endif %}>
+		{% include login.html %}
+		<div id="page" class="page">
+			{% include header-story.html %}
+			<main id="content">
+				<div class="ui-cols">
+					<div class="ui-col-7">
+						<div class="story-content">
+							{% if page.quote %}
+								<div class="quote">
+									{% if page.avatar %}
+										<img src="{{ page.avatar }}" alt="{{ page.title }}" class="avatar avatar-large" />
+									{% endif %}
+									<blockquote>"{{ page.quote }}"</blockquote>
+									{% if page.speaker %}
+										<cite>{{ page.speaker }}</cite>
+									{% endif %}
+								</div>
+							{% endif %}
+							{{ content }}
+						</div>
+					</div>
+					<div class="ui-col-4 ui-skip-1">
+						<aside class="story-aside">
+							{% if page.logo %}
+								<img src="{{ page.logo }}" alt="{{ page.title }}" class="avatar" />
+							{% endif %}
+							<h3>About {{ page.customer }}</h3>
+							<p>{{ page.bio }}</p>
+						</aside>
+					</div>
+				</div>
+				<div class="ui-cols">
+					<div class="ui-col-12">
+						<div class="promo-footer">
+							<div class="promo-footer-content">
+								<h2>{{ page.callToAction }}</h2>
+								<p>Contact us for pricing and your free 30-day trial.</p>
+							</div>
+							<div class="promo-footer-action">
+								<a href="/pricing" class="ui-action ui-action-large">View Pricing</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+			{% include footer.html %}
+		</div>
+	</body>
+</html>

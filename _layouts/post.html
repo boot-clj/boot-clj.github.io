@@ -1,0 +1,66 @@
+---
+layout: blog
+---
+{% assign author = site.authors[page.author] %}
+
+<article class="post">
+	<div class="ui-cols">
+		<div class="ui-col-2 ui-skip-1">
+			<div class="post-author">
+				{% if author %}
+					{% if author.avatar %}
+						<img class="avatar" src="{{author.avatar}}" alt="{{ author.display_name }}" />
+					{% endif %}
+					<small>Posted by</small>
+					<h5>{{ author.display_name }}</h5>
+					<p>{{ author.bio }}</p>
+				{% endif %}
+			</div>
+		</div>
+		<div class="ui-col-8">
+			<div class="post-content">
+				<div class="post-meta">
+					Posted {{ page.date | date: "%b %-d, %Y" }}
+				</div>
+				<div class="post-title">
+					<h1>{{ page.title }}</h1>
+				</div>
+				<div class="post-body">
+					{{ content }}
+				</div>
+				<div class="post-social">
+					<ul class="sharing sharing-row">
+						<li class="share-facebook">
+							<div class="fb-like" data-href="{{page.permalink}}" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+						</li>
+						<li class="share-twitter">
+							<a href="{{page.permalink}}" class="twitter-share-button">Tweet</a>
+						</li>
+						<li class="share-linkedin">
+							<script type="IN/Share" data-url="{{page.permalink}}" data-counter="right"></script>
+						</li>
+						<li class="share-google">
+							<div class="g-plusone" data-size="medium" data-href="{{page.permalink}}"></div>
+						</li>
+					</ul>
+				</div>
+				<div class="post-recommendations">
+					{% if page.previous %}
+						<div class="post-recommendation">
+							<small>Previous</small>
+							<h6><a href="{{page.previous.url}}">{{page.previous.title}}</a></h6>
+							<p>{{page.previous.excerpt | strip_html}}</p>
+						</div>
+					{% endif %}
+					{% if page.next %}
+						<div class="post-recommendation">
+							<small>Next</small>
+							<h6><a href="{{page.next.url}}">{{page.next.title}}</a></h6>
+							<p>{{page.next.excerpt | markdownify}}</p>
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</article>

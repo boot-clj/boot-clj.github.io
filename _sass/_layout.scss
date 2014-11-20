@@ -1,0 +1,82 @@
+body { background: #f4f4f4; }
+
+.page { overflow: hidden; background: $banner url($banner-background) repeat 50% 0 fixed; background-size: cover; max-width: 1480px; margin: 0 auto; -webkit-transition: -webkit-filter .5s, opacity .5s; transition: filter .5s, opacity .5s; }
+.overlay-visible + .page { }
+main { background: white; }
+
+.cta { margin: 4rem 0; text-align: center; }
+
+a.ui-action { background: white; border-color: $link; color: $link; }
+a.ui-action-main { background: $offset; color: white; border-color: transparent;
+	&:hover { border-color: darken($offset,10%); }
+}
+
+.ui-full { overflow: auto; }
+table { font-size: $small; }
+
+.silver { background: $faint; }
+
+.ui-action-main:after { content: ''; display: inline-block; width: .5em; height: .5em; border: 0 solid white; border-width: .15em .15em 0 0; margin: 0 .5em 0 1em; line-height: 0; -webkit-transform: rotate(45deg); -moz-transform: rotate(45deg); -ms-transform: rotate(45deg); -o-transform: rotate(45deg); transform: rotate(45deg); }
+
+.avatar { border-radius: 50%; box-shadow: 0 20px 20px rgba(0,0,0,.2); width: 64px; 
+	&.avatar-large { width: 128px; }
+	@media only screen and (max-width: $break) {
+		max-width: 80px;
+	}
+}
+
+.overlay { background: rgba(0,0,0,.15); top: 0; left: 0; z-index: 5000; width: 100%; height: 100%; position: fixed; display: table; margin: 0; opacity: 0; visibility: hidden; left: -100%; transition: opacity .25s ease-out, visibility .25s ease-out; transition: opacity .25s ease-out, visibility .25s ease-out; 
+	&.overlay-visible { opacity: 1; visibility: visible; left: 0; }
+	.overlay-content { display: table-cell; vertical-align: middle; text-align: center;
+		.modal { display: inline-block; max-width: 360px; background: white; border-radius: 6px; padding: 3% 5%; @include transitions(); @include minimized(.5);
+			&.modal-form { padding: 0; width: 640px; max-width: none;
+				@media only screen and (max-width: $break) {
+					width: 80%; min-width: 320px; 
+				}
+			}
+			.modal-content {
+				iframe { margin: 0 !important; }
+				> *:first-child { margin-top: 1rem; }
+				a { color: $orange; }
+			}
+			.modal-close { z-index: 5001; width: 24px; height: 24px; display: block; position: absolute; text-indent: -9999px; top: 0; right: 0; margin: 2rem;
+				-webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg);
+				&:before, &:after { content: ''; display: block; position: absolute; width: 2px; height: 2px; background: #333; margin: auto; top: 0; left: 0; right: 0; bottom: 0; }
+				&:before { width: 100%; }
+				&:after { height: 100%; }
+			}
+		}
+	}
+}
+
+.promo { margin: 2rem 0 4rem; @include clearfix();
+	.promo-graphic { max-width: 150px; margin: 2rem auto;
+		@media only screen and (min-width: $break) {
+			margin: 0 0 0 4rem; float: right;
+		}
+		img { display: block; width: 100%; }
+	}
+	.promo-text { 
+		> *:first-child { margin-top: 0; }
+		> *:last-child { margin-bottom: 0; }
+	}
+	.promo-text + .promo-graphic { padding-left: 4rem; padding-right: 0; }
+}
+
+.features { margin: 4rem 0;
+	ul { margin: 0; padding: 0; border-width: 0; @include align(3,4%,0); 
+		li { margin: 2rem 0;
+			img { width: 48px; float: right; margin: .25rem 0 1rem 1rem !important; }
+			strong { font-size: 1.125rem; }
+		}
+	}
+
+}
+
+img.thumbnail { max-width: 200px; display: block; margin: 1rem auto; }
+@media only screen and (min-width: $break) {
+	.thumbnail-right { float: right; margin-left: 4rem !important; }
+	.thumbnail-left { float: left; margin-right: 4rem !important; }
+}
+
+hr { margin: 8rem auto; max-width: 200px; }

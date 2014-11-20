@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	{% include head.html %}
+	<body {%if page.class %}class="{{page.class}}"{% endif %}>
+		{% include login.html %}
+		<div id="page" class="page">
+			{% include header-home.html %}
+			<main id="content">
+				<div class="post">
+					<div class="ui-cols">
+						<div class="ui-col-10 ui-skip-1">
+							<div class="post-body">
+								{{ content }}
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+			{% include footer.html %}
+		</div>
+	</body>
+</html>

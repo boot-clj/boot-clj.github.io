@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	{% include head.html %}
+	<body {%if page.class %}class="{{page.class}}"{% endif %}>
+		{% include login.html %}
+		<div id="page" class="page">
+			{% include header-resource.html %}
+			<main id="content">
+				<div class="ui-cols">
+					<div class="ui-col-12">
+						<div class="resources">
+							{% for resource in site.resources %}
+								<div class="resource">
+									<a href="{{ resource.url }}" class="resource-preview">
+										<img src="{{ resource.preview }}" />
+									</a>
+									<div class="resource-content">
+										<h4><a href="{{ resource.url }}">{{ resource.title }}</a></h4>
+										<p>{{ resource.excerpt }}</p>
+									</div>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</main>
+			{% include footer.html %}
+		</div>
+	</body>
+</html>

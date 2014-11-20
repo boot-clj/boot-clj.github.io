@@ -1,0 +1,42 @@
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	{% if page.error %} <meta http-equiv="refresh" content="1; url=/"> {% endif %}
+
+	<!-- CONTENT -->
+	<title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+	<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  
+	<!-- CUSTOM -->
+	{% assign author = site.authors[page.author] %}
+	{% if author %}{% if author.google %}<link rel="author" href="{{author.google}}" />{% endif %}{% endif %}
+	{% if site.favicon %}<link rel="shortcut icon" href="{{site.favicon}}">{% else %}<link rel="shortcut icon" href="/assets/images/logos/adzerk-favicon-16.png">{% endif %}
+	{% if site.iosicon %}<link rel="apple-touch-icon" href="{{site.iosicon}}">{% endif %}
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>	
+		<!--<script src="{{ '/js/jquery.history.js' | prepend: site.baseurl }}"></script>	
+		<script src="{{ '/js/ajaxify-html5.js' | prepend: site.baseurl }}"></script>	
+	   <script src="{{ '/js/history.js' | prepend: site.baseurl }}"></script>-->
+	<script src="{{ '/js/main.js' | prepend: site.baseurl }}"></script>
+  <link rel="stylesheet" href="{{ '/css/syntax.css' | prepend: site.baseurl }}">
+	<link rel="stylesheet" href="{{ '/css/main.css' | prepend: site.baseurl }}">
+  <link rel="alternate"
+        type="application/rss+xml"
+        title="{% if include.rss_title %}{{ include.rss_title }}{% else %}Adzerk Blog{% endif %}"
+        href="{{ site.baseurl }}{% if include.rss_feed %}{{ include.rss_feed }}{% else %}/blog/feed.xml{% endif %}">
+	<script type="text/javascript">
+	  window.analytics=window.analytics||[],window.analytics.methods=["identify","group","track","page","pageview","alias","ready","on","once","off","trackLink","trackForm","trackClick","trackSubmit"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var key=window.analytics.methods[i];window.analytics[key]=window.analytics.factory(key)}window.analytics.load=function(t){if(!document.getElementById("analytics-js")){var a=document.createElement("script");a.type="text/javascript",a.id="analytics-js",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)}},window.analytics.SNIPPET_VERSION="2.0.9",
+	  window.analytics.load("cczjy7rubm");
+	  window.analytics.page();
+</script>
+<script type="text/javascript">var p="http",d="static";if(document.location.protocol=="https:"){p+="s";d="engine";}var z=document.createElement("script");z.type="text/javascript";z.async=true;z.src=p+"://"+d+".adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s);</script>
+<script type="text/javascript">
+var ados = ados || {};
+ados.run = ados.run || [];
+ados.run.push(function() {
+/* load placement for account: Adzerk Sales, site: Adzerk Marketing Site, size: 728x90 - Leaderboard, zone: Tracking Pixel*/
+ados_add_placement(8251, 53201, "azk90714", 4).setZone(123780);
+ados_load();
+});</script>
+<div id="azk90714" style="width:0px; height:0px;"></div>
+</head>
