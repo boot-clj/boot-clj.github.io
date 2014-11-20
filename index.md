@@ -13,7 +13,7 @@ actions:
 	<ul>
 		<li><img src="/assets/images/graphics/exe.png" />
 			<strong>Write executable, self-contained scripts</strong>
-			in Clojure and run them with or without a project context.
+			in <a href="http://clojure.org/">Clojure</a> and run them with or without a project context.
 		</li>
 		<li><img src="/assets/images/graphics/tree.png" />
 			<strong>Managed filesystem tree</strong>
