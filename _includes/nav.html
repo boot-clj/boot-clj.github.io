@@ -1,7 +1,8 @@
 <div class="nav-mobile">
 	<div class="nav-mobile-content">
-		<a href="/features">About</a>
-		<a href="/install">Install Boot</a>
+		{% for link in site.nav %}
+		  <a href="{{link.href}}">{{link.title}}</a>
+		{% endfor %}
 	</div>
 </div>
 
