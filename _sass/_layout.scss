@@ -2,7 +2,7 @@ body { background: #f4f4f4; }
 
 .page { overflow: hidden; background: $banner url($banner-background) repeat 50% 0 fixed; background-size: cover; max-width: 1480px; margin: 0 auto; -webkit-transition: -webkit-filter .5s, opacity .5s; transition: filter .5s, opacity .5s; }
 .overlay-visible + .page { }
-main { background: white; }
+main { background: white; padding: 1px 0; }
 
 .cta { margin: 4rem 0; text-align: center; }
 
@@ -66,7 +66,11 @@ table { font-size: $small; }
 .features { margin: 4rem 0;
 	ul { margin: 0; padding: 0; border-width: 0; @include align(3,4%,0); 
 		li { margin: 2rem 0;
-			img { width: 48px; float: right; margin: .25rem 0 1rem 1rem !important; }
+			img { width: 48px; float: right; margin: .25rem 0 1rem 1rem !important; 
+				@media only screen and (max-width: $break) {
+					display: none;
+				}
+			}
 			strong { font-size: 1.125rem; }
 		}
 	}
