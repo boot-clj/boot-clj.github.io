@@ -42,8 +42,10 @@ defaults:
 # --------------------------------------------------
 # Links
 nav: 
-- title: Community
-  href: https://github.com/boot-clj/boot/wiki/Community
+- title: Discourse
+  href: http://hoplon.discoursehosting.net/
+- title: IRC
+  href: http://webchat.freenode.net/?channels=hoplon
 - title: Wiki
   href: https://github.com/boot-clj/boot/wiki
 - title: Code
