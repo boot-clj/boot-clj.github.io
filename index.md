@@ -25,7 +25,7 @@ actions:
     <li>
       <img src="/assets/images/graphics/tree.png"/>
       <strong>Managed filesystem tree</strong>
-      <span>provides a scoped, immutable, append-only <a href="https://github.com/boot-clj/boot/wiki/Filesets">interface</a>.</span>
+      <span>provides a scoped, immutable, append-only <a href="https://github.com/boot-clj/boot/wiki/Filesets">interface</a> for communicating between tasks.</span>
     </li>
     <li>
       <img src="/assets/images/graphics/classloader.png"/>
