@@ -23,11 +23,6 @@ actions:
 <div class="features">
   <ul>
     <li>
-      <img src="/assets/images/graphics/exe.png"/>
-      <strong>Write quick Clojure scripts</strong>
-      <span>without a project context using <a href="https://github.com/boot-clj/boot/wiki/Scripts">shebang support</a></span>
-    </li>
-    <li>
       <img src="/assets/images/graphics/tree.png"/>
       <strong>Managed filesystem tree</strong>
       <span>provides a scoped, immutable, append-only <a href="https://github.com/boot-clj/boot/wiki/Filesets">interface</a>.</span>
@@ -35,17 +30,22 @@ actions:
     <li>
       <img src="/assets/images/graphics/classloader.png"/>
       <strong>Easy classpath isolation</strong>
-      <span>with <a href="https://github.com/boot-clj/boot/wiki/Pods">pods</a> lets you run separate Clojure runtimes without separate JVMs.</span>
-    </li>
-    <li>
-      <img src="/assets/images/graphics/uncoupled.png"/>
-      <strong>Tasks are not coupled</strong>
-      <span>via hardcoded file paths or magical keys in a global configuration map.</span>
+      <span>with <a href="https://github.com/boot-clj/boot/wiki/Pods">pods.</a> Provides separate Clojure runtimes without separate JVMs.</span>
     </li>
     <li>
       <img src="/assets/images/graphics/pipeline.png"/>
       <strong>Compose build pipelines</strong>
       <span>in the project, in the build script, in the REPL, or on the command line.</span>
+    </li>
+    <li>
+      <img src="/assets/images/graphics/exe.png"/>
+      <strong>Write quick Clojure scripts</strong>
+      <span>without a project context using <a href="https://github.com/boot-clj/boot/wiki/Scripts">shebang support</a></span>
+    </li>
+    <li>
+      <img src="/assets/images/graphics/uncoupled.png"/>
+      <strong>Tasks are not coupled</strong>
+      <span>via hardcoded file paths or magical keys in a global configuration map.</span>
     </li>
     <li>
       <img src="/assets/images/graphics/fresh.png"/>

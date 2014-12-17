@@ -49,14 +49,17 @@ table { font-size: $small; }
 	}
 }
 
-.promo { margin: 2rem 0 4rem; @include clearfix();
-	.promo-graphic { max-width: 150px; margin: 2rem auto;
+.promo { margin: 5rem 0 4rem; @include clearfix();
+	.promo-graphic { max-width: 150px; margin: 4rem auto;
 		@media only screen and (min-width: $break) {
-			margin: 0 0 0 4rem; float: right;
+			margin: 2rem 0 0 4rem; float: right;
 		}
 		img { display: block; width: 100%; }
 	}
-	.promo-text { 
+	.promo-text {
+		@media only screen and (min-width: $break) {
+			padding-right: 180px;
+		}
 		> *:first-child { margin-top: 0; }
 		> *:last-child { margin-bottom: 0; }
 	}
