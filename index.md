@@ -40,7 +40,7 @@ actions:
     <li>
       <img src="/assets/images/graphics/exe.png"/>
       <strong>Write quick Clojure scripts</strong>
-      <span>without a project context using <a href="https://github.com/boot-clj/boot/wiki/Scripts">shebang support</a></span>
+      <span>without a project context using <a href="https://github.com/boot-clj/boot/wiki/Scripts">shebang support.</a></span>
     </li>
     <li>
       <img src="/assets/images/graphics/uncoupled.png"/>
