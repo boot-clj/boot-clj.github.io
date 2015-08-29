@@ -7,7 +7,7 @@ iosicon: /assets/images/logos/boot-iosicon-3.png
 company: Adzerk
 description: Build tooling for Clojure
 email: info@adzerk.com
-copyright: Copyright © 2014 <a href="http://tailrecursion.com/~alan/">Alan Dipert</a>, <a href="https://github.com/micha">Micha Niskin</a>, <a href="https://github.com/somegoodpixels">Joshua Smith</a>
+copyright: Copyright © 2015 <a href="http://tailrecursion.com/~alan/">Alan Dipert</a>, <a href="https://github.com/micha">Micha Niskin</a>, <a href="https://github.com/somegoodpixels">Joshua Smith</a>
 adzerk_mention: true
 exclude: [vendor]
 
