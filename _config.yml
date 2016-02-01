@@ -45,7 +45,7 @@ nav:
 - title: Discourse
   href: http://hoplon.discoursehosting.net/
 - title: IRC
-  href: http://webchat.freenode.net/?channels=hoplon
+  href: http://webchat.freenode.net/?channels=bootclj
 - title: Wiki
   href: https://github.com/boot-clj/boot/wiki
 - title: Code
