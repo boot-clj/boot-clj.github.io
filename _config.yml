@@ -42,6 +42,8 @@ defaults:
 # --------------------------------------------------
 # Links
 nav: 
+- title: Slack
+  href: http://clojurians.net 
 - title: Discourse
   href: http://hoplon.discoursehosting.net/
 - title: IRC
