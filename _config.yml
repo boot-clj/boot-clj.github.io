@@ -24,10 +24,6 @@ github_username: boot-clj
 
 # --------------------------------------------------
 # Build settings
-markdown: redcarpet
-  
-# --------------------------------------------------
-# Build settings
 defaults:
 - scope:
     path: ""
