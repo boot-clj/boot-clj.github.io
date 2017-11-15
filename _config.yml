@@ -41,7 +41,7 @@ nav:
 - title: Slack
   href: http://clojurians.net 
 - title: Discourse
-  href: http://hoplon.discoursehosting.net/
+  href: https://clojureverse.org/c/projects/boot
 - title: IRC
   href: http://webchat.freenode.net/?channels=bootclj
 - title: Wiki
