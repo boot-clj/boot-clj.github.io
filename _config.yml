@@ -48,3 +48,7 @@ nav:
   href: https://github.com/boot-clj/boot/wiki
 - title: Code
   href: https://github.com/boot-clj/boot
+# --------------------------------------------------
+# Plugins
+plugins:
+  - jekyll-redirect-from
